@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components{
+    .nav-bar {
+        @apply bg-gray-800 text-white flex;
+    }
+}

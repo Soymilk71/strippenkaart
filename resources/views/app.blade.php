@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="strippenkaart" content="klanten pagina voor uren">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Strippenkaart</title>
 </head>
 <header>
 <div>
     <div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/klanten">Login</a></li>
-                <li><a href="/uren">Register</a></li>
+        <nav class="nav-bar">
+            <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
+                <p>
+                    ridders {logo} log maar in met je ding
+                </p>
             </ul>
         </nav>
     </div>
@@ -23,7 +24,7 @@
 </body>
 <footer>
     <div>
-        <p>&copy; 2020 Strippenkaart</p>
+        <p>Footer :)</p>
     </div>
 </footer>
 </html>
