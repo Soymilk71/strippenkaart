@@ -13,7 +13,7 @@
         <nav class="nav-bar">
             <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
                 <p>
-                    ridders {logo} log maar in met je ding
+                    ridders {logo} 
                 </p>
             </ul>
         </nav>
