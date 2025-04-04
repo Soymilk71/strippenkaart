@@ -7,24 +7,27 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Strippenkaart</title>
 </head>
-<header>
-<div>
-    <div>
-        <nav class="nav-bar">
-            <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
-                <p>
-                    ridders {logo} log maar in met je ding
-                </p>
-            </ul>
-        </nav>
+<div class="">
+
+    <header>
+        <div>
+            <div>
+                <nav class="nav-bar">
+                    <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
+                        <p>
+                            ridders {logo}  
+                        </p>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <body class="">
+            @yield('content')
+        </body>
+        <footer>
+            <div class="fixed bottom-0">
+                <p>Footer :)</p>
+            </div>
+        </footer>
     </div>
-</header>
-<body>
-    @yield('content')
-</body>
-<footer>
-    <div>
-        <p>Footer :)</p>
-    </div>
-</footer>
 </html>
