@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Strippenkaart</title>
 </head>
+<<<<<<< HEAD
 <div class="">
 
     <header>
@@ -29,5 +30,17 @@
                 <p>Footer :)</p>
             </div>
         </footer>
+=======
+<header>
+<div>
+    <div>
+        <nav class="nav-bar">
+            <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
+                <p>
+                    ridders {logo} 
+                </p>
+            </ul>
+        </nav>
+>>>>>>> feature/spvb-koop-pagina
     </div>
 </html>
