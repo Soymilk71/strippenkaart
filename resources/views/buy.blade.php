@@ -10,8 +10,8 @@
         <div class="flex-1">
             <label for="customer" class="block mb-1 font-medium">Klant</label>
             <select name="customer" id="customer" class="form-input w-full">
-                <option value="#">For loop met alle klanten</option>
-                <option value="#">Klant B</option>
+                <option value="#">test klant A</option>
+                <option value="#">test klant B</option>
             </select>
         </div>
 
@@ -46,8 +46,6 @@
         </div>
     </div>
     <!-- deze zooi moet pas zichtbaar zijn als je uren spenderen selecteert vvvvvvv -->
-
-
     <div>
         <label for="title" class="block mb-1 font-medium">Titel</label>
         <input type="text" name="title" id="title" class="form-input w-full" placeholder="Titel">
