@@ -17,7 +17,7 @@
         </select>
         <label for="date">Datum</label>
         <input type="date" name="date" id="date">
-        <label for="hours">Aantal gemaakte uren</label>
+        <label for="hours">Aantal uren</label>
         <input type="number" name="hours" id="hours" class="form-input" placeholder="Uren">
         <label for="minutes"></label>
         <select name="minutes" id="minutes">
