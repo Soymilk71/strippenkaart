@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\KlantenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Buy routes
+
+Route::get('/buy', [KlantenController::class, 'buy'])->name('buy');
+
+
 Route::get('/', function () {
     return view('home');
-});
-
-Route::get('/task', function (){
-    return view('task');
-});
-Route::get('/buy', function () {
-    return view('buy');
 });
