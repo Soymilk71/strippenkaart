@@ -3,23 +3,34 @@
 @section('content')
 
 <div class="m-5 p-5">
-<form action="/buy" method="POST" class="space-y-6">
+@if($errors->any())
+    <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>⚠️ {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<form action="{{ route('buy.store') }}" method="POST" class="space-y-6">
     @csrf
 
     <div class="flex flex-col md:flex-row md:items-center md:gap-6">
         <div class="flex-1">
             <label for="customer" class="block mb-1 font-medium">Klant</label>
             <select name="customer" id="customer" class="form-input w-full">
-                <option value="#">test klant A</option>
-                <option value="#">test klant B</option>
+            @foreach(\App\Models\Klanten::all() as $klant)
+                <option value="{{ $klant->id }}">{{ $klant->voornaam }} {{ $klant->achternaam }}</option>
+            @endforeach
+
             </select>
         </div>
 
         <div class="flex-1 mt-4 md:mt-0">
             <label for="type" class="block mb-1 font-medium">Soort</label>
             <select name="type" id="type" class="form-input w-full">
-                <option value="#">Uren kopen</option>
-                <option value="#">Uren spenderen</option>
+                <option value="kopen">Uren kopen</option>
+                <option value="spenderen">Uren spenderen</option>
             </select>
         </div>
     </div>
@@ -37,7 +48,7 @@
         <div class="flex-1 mt-4 md:mt-0">
             <label for="minutes" class="block mb-1 font-medium">Minuten</label>
             <select name="minutes" id="minutes" class="form-input w-full">
-                <option value="" disabled selected hidden>Minuten</option>
+                <!-- <option value="" disabled selected hidden>Minuten</option> -->
                 <option value="0">0</option>
                 <option value="15">15</option>
                 <option value="30">30</option>
@@ -45,7 +56,7 @@
             </select>
         </div>
     </div>
-    <!-- deze zooi moet pas zichtbaar zijn als je uren spenderen selecteert vvvvvvv -->
+  
     <div>
         <label for="title" class="block mb-1 font-medium">Titel</label>
         <input type="text" name="title" id="title" class="form-input w-full" placeholder="Titel">
@@ -67,7 +78,15 @@
 </form>
 </div>
 
-
+<!-- <form action="{{ route('buy.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="customer" value="1">
+    <input type="hidden" name="type" value="kopen">
+    <input type="hidden" name="date" value="2025-04-15">
+    <input type="hidden" name="hours" value="1">
+    <input type="hidden" name="minutes" value="0">
+    <button type="submit">Test Submit</button>
+</form> -->
 
 
 @endsection

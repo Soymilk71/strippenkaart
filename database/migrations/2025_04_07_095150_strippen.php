@@ -16,9 +16,9 @@ return new class extends Migration
             $table->integer('klant_id');
             $table->date('date');
             $table->string('type');
-            $table->integer('uren');
-            $table->integer('uren_na_submit');
-            $table->integer('titel')->nullable();
+            $table->integer('uren')->nullable();
+            $table->integer('uren_na_submit')->nullable();
+            $table->string('titel')->nullable();
             $table->string('omschrijving')->nullable();
             $table->string('jira_link')->nullable();
             $table->timestamps();
