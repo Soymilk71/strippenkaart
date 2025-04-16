@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\KlantenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/buy', [BuyController::class, 'buy'])->name('buy');
 Route::post('/buy/store', [BuyController::class, 'store'])->name('buy.store');
+
+Route::get('customers', [KlantenController::class, 'index']);
 
 Route::get('/', function () {
     return view('home');
