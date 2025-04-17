@@ -12,6 +12,7 @@
                     <th class="border border-gray-300 px-4 py-2 text-left">Voornaam</th>
                     <th class="border border-gray-300 px-4 py-2 text-left">Achternaam</th>
                     <th class="border border-gray-300 px-4 py-2 text-left">Aantal uren</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Bewerken</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,9 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $klant->achternaam }}</td>
                         <td class="border border-gray-300 px-4 py-2">
                             {{minutesToHours($klant->aantal_uren) }}
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2">
+                        <a href="{{ route('klanten.geschiedenis', $klant->id) }}" class="text-blue-500 hover:underline">Bewerk</a>
                         </td>
                     </tr>
                 @endforeach

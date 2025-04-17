@@ -78,15 +78,5 @@
 </form>
 </div>
 
-<!-- <form action="{{ route('buy.store') }}" method="POST">
-    @csrf
-    <input type="hidden" name="customer" value="1">
-    <input type="hidden" name="type" value="kopen">
-    <input type="hidden" name="date" value="2025-04-15">
-    <input type="hidden" name="hours" value="1">
-    <input type="hidden" name="minutes" value="0">
-    <button type="submit">Test Submit</button>
-</form> -->
-
 
 @endsection

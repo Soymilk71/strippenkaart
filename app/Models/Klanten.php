@@ -25,4 +25,10 @@ class Klanten extends Model
         'password',
         'remember_token',
     ];
+
+    public function strippen()
+    {
+        return $this->hasMany(Strip::class, 'klant_id');
+    }
+
 }
