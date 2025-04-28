@@ -42,7 +42,6 @@
         </div>
       </div>
   
-      <!-- Alleen tonen als 'spenderen' -->
       <div v-if="type === 'spenderen'">
         <div>
           <label for="title" class="block mb-1 font-medium">Titel</label>
