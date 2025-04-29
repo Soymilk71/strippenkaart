@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\BuyController;
-use App\Http\Controllers\KlantenController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KlantenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,20 @@ Route::get('customers', [KlantenController::class, 'index']);
 Route::get('/klanten/{id}/geschiedenis', [KlantenController::class, 'geschiedenis'])
      ->name('klanten.geschiedenis');
 
+
+//auth
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+
+//middleware
+Route::middleware('auth')->group(function () {
+    Route::get('/authenticated/authTest', function (){
+        return view ('authenticated.authTest');
+      })->name('authenticated.authTest');
+});
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/', function () {
     return view('home');
 });
