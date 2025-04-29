@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Foundation\Auth\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Klanten extends Model
+class Klanten extends User
 {
     use HasFactory;
     

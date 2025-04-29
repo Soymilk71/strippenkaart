@@ -58,11 +58,11 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
+    //klanten is mijn default user class geworden! heel netjes van mezelf :)
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Klanten::class,
         ],
 
         // 'users' => [

@@ -34,14 +34,14 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 
 //middleware
-Route::middleware('auth')->group(function () {
-    Route::get('/authenticated/authTest', function (){
-        return view ('authenticated.authTest');
-      })->name('authenticated.authTest');
-});
+// bestand: resources/views/test.blade.php
+Route::middleware('auth')->get('/test', function () {
+    return view('test');
+})->name('test');
+
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');

@@ -19,17 +19,31 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
-        $validated =$request->validate([
+        $validated = $request->validate([
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'email' => 'required|string|email|max:255|unique:klanten,email',
+            'password' => 'required|string|min:1|confirmed',
         ]);
-        $user = Klanten::create($validated);
+    
+        $user = Klanten::create([
+            'voornaam' => $validated['firstname'],
+            'achternaam' => $validated['lastname'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            //voor nu zetten we de velden op null, dit kan later aangepast worden in de klantpersoonlijke pagina,
+            //ik wil nu de basis gegevens hebben voor de klant zodat zij haar account kan aanmaken en uren kan kopen.
+            'aantal_uren' => null,
+            'is_admin' => null,
+            'bedrijf' => null,
+            'remember_token' => null,
+
+        ]);
+    
         Auth::login($user);
+    
         return redirect('/');
     }
-
     public function login (Request $request)
     {
         $validated = $request->validate([
@@ -38,7 +52,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
-            return redirect()->route('/');
+            return redirect()->route('home');
         }
 
         throw ValidationException::withMessages([
