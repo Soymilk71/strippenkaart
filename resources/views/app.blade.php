@@ -13,10 +13,19 @@
         <div>
             <div>
                 <nav class="nav-bar">
-                    <ul class="flex mr-auto gap-4 ml-4 my-3 hover:text">
-                        <p>
-                            ridders {logo}  
-                        </p>
+                    <ul class="flex items-center gap-4 ml-4 my-3 w-full">
+                        <a href="{{ route('home') }}">Home</a>
+                        @guest
+                            <a href="{{route('login') }}">Login</a>
+                            <a href="{{route('register') }}">Registreren</a>
+                        @endguest                        
+                        @auth
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                            <p class="ml-auto mr-5">Welkom {{ Auth::user()->voornaam }} </p>
+                        @endauth
                     </ul>
                 </nav>
             </div>

@@ -9,8 +9,13 @@ class KlantenController extends Controller
 {
     //
     public function index(){
+
+        if(!auth()->user()->is_admin){
+            return redirect()->route('home')->with('error', 'Je hebt geen toegang tot deze pagina.');
+        }
+
         $klanten = Klanten::all();
-        return view('customers', compact('klanten'));
+        return view('admin.customers', compact('klanten'));
         
     }
     public function geschiedenis($id)
@@ -28,7 +33,7 @@ class KlantenController extends Controller
         $totaalGekocht = $strippen->where('type', 'koop')->sum('uren');
         $totaalGebruikt = $strippen->where('type', 'gebruik')->sum('uren');
 
-        return view('klanten.geschiedenis', compact(
+        return view('admin.geschiedenis', compact(
             'klant',
             'strippen',
             'totaalGekocht',

@@ -14,11 +14,14 @@
 @endif
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<script id="old-data" type="application/json">
+    {!! json_encode(old()) !!}
+</script>
 
-<!-- Klanten data in JSON -->
 <script id="klanten-data" type="application/json">
     {!! \App\Models\Klanten::all()->toJson() !!}
 </script>
+
 
 <!-- Vue mount punt -->
 <div id="app">
