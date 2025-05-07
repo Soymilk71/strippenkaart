@@ -21,24 +21,16 @@ class KlantenController extends Controller
     public function geschiedenis($id)
     {
         // Zoek de klant of geef 404
-        $klant = Klanten::findOrFail($id);
+        $klant = Klanten::with(['strippen' => fn($q) => $q->orderBy('date', 'desc')])->findOrFail($id);
 
-        // Haal alle 'strippen' op, gesorteerd op datum (nieuwst eerst)
-        $strippen = $klant
-            ->strippen()
-            ->orderBy('date', 'desc')
-            ->get();
 
-        // Optioneel: samenvattingen
-        $totaalGekocht = $strippen->where('type', 'koop')->sum('uren');
-        $totaalGebruikt = $strippen->where('type', 'gebruik')->sum('uren');
+        $lastTransaction= $klant->aankopen()->latest('date')->first();
+
 
         return view('admin.geschiedenis', compact(
             'klant',
-            'strippen',
-            'totaalGekocht',
-            'totaalGebruikt'
+            'lastTransaction'
+
         ));
     }
-
 }

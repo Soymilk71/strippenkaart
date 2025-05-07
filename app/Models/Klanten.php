@@ -31,4 +31,9 @@ class Klanten extends User
         return $this->hasMany(Strip::class, 'klant_id');
     }
 
+    public function aankopen()
+    {
+        return $this->strippen()->where('type', 'kopen');
+    }
+
 }
