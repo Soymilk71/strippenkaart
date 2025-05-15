@@ -55,6 +55,7 @@ class BuyController extends Controller
         'omschrijving' => $request->description,
         'jira_link' => $request->jira,
     ]);
+    return redirect()->back()->with('success', 'Uren zijn succesvol opgeslagen.');
     
     }
 }
