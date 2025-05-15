@@ -39,14 +39,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 });
 
-//guest routes
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::middleware(['guest'])->group(function (){
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+});
 
 //global routes
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', function () {
-    return view('home');
+    if (auth()->check()) {
+        return redirect()->route('test');
+    }
+    return redirect()->route('login');
 })->name('home');
