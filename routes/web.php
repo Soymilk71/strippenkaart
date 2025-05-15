@@ -34,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/customers', [KlantenController::class, 'index'])->name('admin.customers');
     Route::get('/admin/customers/{id}/geschiedenis', [KlantenController::class, 'geschiedenis'])->name('admin.geschiedenis');
+    Route::get('/admin/home', function () {
+        return view('admin.home');
+    });
 });
 
 //guest routes

@@ -1,5 +1,5 @@
 <template>
-  <form action="/buy/store" method="POST" class="space-y-6">
+  <form action="/buy" method="POST" class="space-y-6">
     <input type="hidden" name="_token" :value="csrf">
 
     <!-- Klant & Soort -->

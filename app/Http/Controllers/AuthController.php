@@ -23,7 +23,7 @@ class AuthController extends Controller
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:klanten,email',
-            'password' => 'required|string|min:1|confirmed',
+            'password' => 'required|string|min:45|confirmed',
         ]);
     
         $user = Klanten::create([
